@@ -1,0 +1,37 @@
+<br><br>
+<form class="form-inline">
+<div class="form-group mx-sm-3 mb-2">
+    <label for="inputPassword2" class="sr-only">Password</label>
+	<input type="text" class="form-control" id="name" name="name" [(ngModel)]="nombre"
+	 placeholder="Search by name">
+  </div>
+  <button type="button" (click)="consultarUser()" class="btn btn-primary mb-2">Search</button>
+
+  <button type="button" [routerLink]="['/usuarioAdd']" routerLinkActive="router-link-active" style="margin-left:5px ;" class="btn btn-success mb-2">New User</button>
+
+</form>
+
+<br><br>
+<table class="table table-bordered">
+
+	<thead class="thead">
+
+		<th scope="col">ID</th>
+		<th scope="col">Name</th>
+		<th scope="col">Delete</th>
+		<th scope="col">Edit</th>
+
+	</thead>
+
+	<tbody>
+		<tr *ngFor="let student of students">
+			<td>{{student.id}}</td>
+			<td>{{student.nombre}}</td>
+			<td><button (click)="deleteUsuario(student.id)" class="btn btn-danger">Delete</button></td>
+			<td><button  [routerLink]="['/usuarioAdd',student.id]" routerLinkActive="router-link-active" class="btn btn-warning">Edit</button></td>
+		</tr>
+	</tbody>
+
+	
+
+</table>
